@@ -1,0 +1,31 @@
+// Struct to represent a project in the marketplace
+struct Project {
+    uint256 id; string name; bool completed; address creator;
+    address[] voter; uint256 voteCounter; uint256 fundingGoal;
+    uint256 currentFunding;
+}
+Project[] public projects;
+
+uint256 totalVotedPower = 0; // 16 in this case
+uint256 votedGovernanceDollar; // 10 for example
+mapping (address => uint256) public ArchangelArray;
+                                 // stores the information of sold governance token
+                                 //   address      votingPower
+                                 // 0xf39...266      37%
+                                 // 0x709...9C8      62%
+                                 
+                                 
+function deployProject(uint256 _projectId) public returns(bool) {
+    address[] voters; voteCounter;
+    uint256 totalVotedPower;
+    (,,,,voters,voteCounter,,,) = projects[_projectId];
+
+    uint256 length = voters;
+    for (uint256 i = 0; i < length; i++) {
+        address angelAddress = voters[i];
+        totalVotedPower += angelWallets[angelAddress].votingPower;
+    }
+    
+    if (totalVotedPower>49 && voteCounter>9) return ture;
+    return false;
+}

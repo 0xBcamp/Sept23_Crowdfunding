@@ -1,0 +1,12 @@
+struct DeployedProject {
+    uint256 projectId;
+    uint256 currentFund;
+    uint256 fundGoal;
+    address owner;
+    mapping (address => uint256) angelsFund;  // stores fund amount of each funder
+}
+DeployedProject[] public deployedProject; // stores all deployed project information
+
+function fund(uint256 _projectId) public payable {
+    deployedProject[_projectId].angelsFund[_projectId] += msg.value;
+}

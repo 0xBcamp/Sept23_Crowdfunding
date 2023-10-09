@@ -1,0 +1,18 @@
+// Buy governance token
+function lockTokens(address _walletAddress, uint256 _amount) public {
+    uint256 angelBalance = angelWallets[_walletAddress].angelDollar;
+    
+    if (_amount > angelBalance) revert lockTokens__NotEnoughBalance();
+    if (_amount < 100) revert lockTokens__InsufficientAmount();
+    
+    governanceDollarSold += (_amount/100);
+    angelWallets[_walletAddress].governanceDollar += (_amount/100);
+    angelWallets[_walletAddress].angelDollar -= _amount;
+    angelWallets[_walletAddress].governor = true;
+    
+    // updating the voting power of the angel
+    uint256 governanceDollarSold;
+    uint256 angelsGovernanceDollar = angelWallets[_walletAddress].governanceDollar;
+    
+    angelWallets[_walletAddress].votingPower = (angelsGovernanceDollar*100)/governanceDollarSold;
+}

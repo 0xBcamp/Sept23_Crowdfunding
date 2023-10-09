@@ -1,0 +1,11 @@
+DeployedProject[] public deployedProject; // stores all deployed project information
+
+modifier onlyOwner(address _owner) {
+    if (msg.sender != _owner) revert AngelDAO__OwnerOnly();
+    _;
+}
+
+function withdraw() public onlyOwner(deployedProject[projectID].owner) {
+    (bool success, ) = payable(msg.sender).call{value: address(this).balance}("");
+    if (!success) revert WithdrawError__TransactionFailed();
+}

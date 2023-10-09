@@ -1,0 +1,13 @@
+// Angel trying to buy angelDollar
+function buyAngelDollar() {}
+
+// Project owner will first create a new Wallet
+function setAngelWallet(address _newAngelWallet) external onlyAngelWallet {
+    AngelWallet = _newAngelWallet;
+}
+
+// Project owner will give them some angelDollar in the recipients wallet
+function transfer(address recipient, uint256 amount) public onlyAngelWallet override returns(bool) {
+    super.transfer(recipient, amount);
+    return true;
+}
