@@ -1,0 +1,14 @@
+function proposeProject(string memory _name, uint256 _fundingGoal) external {
+    if (_fundingGoal <= 0) revert ProposeProject__NoFundGoal();
+    if (_name == "") revert ProposeProject__NoName();
+    
+    Project({
+        id: projectCounter;
+        name: _name;
+        fundingGoal: _fundingGoal;
+        currentFunding: 0;
+        creator: msg.sender;
+        completed: false;
+    });
+    projectCounter++;
+}

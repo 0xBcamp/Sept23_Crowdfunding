@@ -1,0 +1,7 @@
+struct Wallet {
+    bool governor;
+    uint256 angelDollar;
+    uint256 votingPower;
+    uint256 governanceDollar;
+}
+mapping (address => Wallet) public angelWallets;

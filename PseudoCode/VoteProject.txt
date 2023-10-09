@@ -1,0 +1,35 @@
+// Struct to represent a project in the marketplace
+struct Project {
+    uint256 id;
+    string name;
+    bool completed;
+    address creator;
+    address[] voter;
+    uint256 voteCounter;
+    uint256 fundingGoal;
+    uint256 currentFunding;
+}
+Project[] public projects;
+
+// Only angels with more than 5 governance dollar can vote
+function voteForProject(uint256 _projectId, uint256 _amount) external {
+    (,,,,address[] voters,,,) = projects[_projectId];
+    uint256 length = voters.length;
+    bool isVoter;
+    for (uint256 i = 0; i < length; i++) {
+        if (msg.sender == voters[i]) {
+            isVoter = true;
+            break;
+        }
+    }
+    
+    if (isVoter) {
+        revert voteForProject__AlreadyVoter();
+    }
+    if (angelWallets[msg.sender].governanceDollar < 5) {
+        revert voteForProject__NotGovernor();
+    }
+    projects[_projectId].voteCounter += 1;
+    projects[_projectId].voter.push(msg.sender);
+    
+}

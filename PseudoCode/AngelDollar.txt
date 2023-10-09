@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.10 <=0.9.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+error ERC20__AngelWalletOnly();
+
+contract AGT is ERC20, Ownable {
+    address public AngelWallet;
+    
+    constructor() ERC20("AngelGovernanceToken", "AGT") {
+        _mint(msg.sender, 1000000 * 10e18); // Mint initial supply to the deployer
+        AngelWallet = msg.sender; // Set a wallet to the deployer
+    }
+    
+    modifier onlyAngelWallet() {
+        if (msg.sender != AngelWallet) revert ERC20__AngelWalletOnly();
+        _;
+    }
+    
+    function setAngelWallet(address _newAngelWallet) external onlyAngelWallet {
+        AngelWallet = _newAngelWallet;
+    }
+    
+    function transfer(adress recipient, uint256 amount) public onlyAngelWallet override returns(bool) {
+        super.transfer(recipient, amount);
+        return true;
+    }
+}
