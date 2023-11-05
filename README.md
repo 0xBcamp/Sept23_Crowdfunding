@@ -1,8 +1,7 @@
 ![](angeldao_logo.png)
 *AngelDAO ...the future of web3-powered crowdfunding*
 
-
-# AngelDAO: Web3-Powered Crowdfunding Community
+***
 
 ### AngelDAO is a web3-powered community that offers users a platform to fund verified projects of their choice, and get returns on their investments.
 ### Being powered by web3, it entails the use of smart contracts for all processes on the block(chain)-end of the solution.  
