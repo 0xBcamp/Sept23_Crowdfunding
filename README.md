@@ -1,17 +1,8 @@
-<div style="text-align:center">
-    <img src="./angeldao_logo.png" alt="Your Image" /> <br>
-    <span style="font-family: 'Papyrus'; font-size: 1.25em; font-weight: 100">AngelDAO ...the future of web3-powered crowdfunding</span>
-</div>
+![](angeldao_logo.png)
+*AngelDAO ...the future of web3-powered crowdfunding*
 
-<span style="font-family: 'Papyrus'">
-
-<br>
-<br>
-<br>
 
 # AngelDAO: Web3-Powered Crowdfunding Community
-
-***
 
 ### AngelDAO is a web3-powered community that offers users a platform to fund verified projects of their choice, and get returns on their investments.
 ### Being powered by web3, it entails the use of smart contracts for all processes on the block(chain)-end of the solution.  
@@ -46,4 +37,3 @@ $ forge build
 ## Frontend
 
 ### For comprehensive information on how to run the frontend interface, [refer to the Frontend Guide]()
-</span>

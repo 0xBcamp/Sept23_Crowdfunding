@@ -1,9 +1,7 @@
-<div style="text-align:center">
-    <img src="./angeldao_logo.png" alt="Your Image" /> <br>
-    <span style="font-family: 'Papyrus'; font-size: 1.25em; font-weight: 100">AngelDAO ...the future of web3-powered crowdfunding</span>
-</div>
+![](angeldao_logo.png)
+*AngelDAO ...the future of web3-powered crowdfunding*
 
-<span style="font-family: 'Papyrus'">
+***
 
 # Outline
 
@@ -25,8 +23,6 @@
 ### But these platforms target majorly web2 projects and initiatives, and web3 projects have mostly had to resort to ICOs to raise capital. A solution is needed that caters to both people who want to provide capital for projects, and those who want to fund charitable initiatives.
 ### AngelDAO is that solution, and we explain how we aim to do these in this article.
 
-***
-
 ## Problem
 
 * ### Web3 crowdfunding suffers from trust gaps between creators and funders
@@ -34,8 +30,6 @@
 * ### Inadequate project visbility leads to blind investments
 
 * ### Regulatory concerns are a significant challenge
-
-***
 
 ## Solution
 
@@ -48,8 +42,6 @@
 * ### Projects are promoted organically, as opposed to hype
 
 * ### A native token designed to minimize flunctuations in value is used
-
-***
 
 ## Components
 
@@ -81,18 +73,11 @@
 
 ### Angels with governance tokens come here to vote on projects to be hosted on the platform, upcoming features, etc
 
-***
-
 ## Architecture
 
-<div style="text-align:center">
-    <img src="./arch_1.png" alt="Your Image" />
-</div>
-
-***
+![](arch_1.png)
 
 ## Vision
 
 * ### Empowering trust and transparency in web3 crowdfunding through AngelDAO, a universal DAO that fosters informed investments and eliminates inherent flaws, creating a more secure and efficient community-funding ecosystem.
-</span>
 
