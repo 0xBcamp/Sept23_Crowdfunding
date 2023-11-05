@@ -1,8 +1,6 @@
 ![](angeldao_logo.png)
 *AngelDAO ...the future of web3-powered crowdfunding*
 
-***
-
 # Outline
 
 * ### Introduction
