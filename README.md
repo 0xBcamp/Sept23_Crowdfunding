@@ -1,66 +1,49 @@
-## Foundry
+<div style="text-align:center">
+    <img src="./angeldao_logo.png" alt="Your Image" /> <br>
+    <span style="font-family: 'Papyrus'; font-size: 1.25em; font-weight: 100">AngelDAO ...the future of web3-powered crowdfunding</span>
+</div>
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+<span style="font-family: 'Papyrus'">
 
-Foundry consists of:
+<br>
+<br>
+<br>
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+# AngelDAO: Web3-Powered Crowdfunding Community
 
-## Documentation
+***
 
-https://book.getfoundry.sh/
+### AngelDAO is a web3-powered community that offers users a platform to fund verified projects of their choice, and get returns on their investments.
+### Being powered by web3, it entails the use of smart contracts for all processes on the block(chain)-end of the solution.  
+### This README provides an overview of the AngelDAO project as well as important details for both users and developers  
 
-## Usage
+***
 
-### Build
+### AngelDAO consists of:
+
+- ###   **[`AngelDollar.sol`](./src/AngelDollar.sol)**: Smart contract that powers Angel Dollar; the native currency of the AngelDAO community.
+- ###  **[`AngelGovernanceToken.sol`](./src/AngelGovernanceToken.sol)**: Smart contract that powers the Angel Governance Token, a token which Angels can use to vote for projects in the Angel Court, get access to airdrops, receive community benefits, etc.
+- ###  **[`Crowdfunding.sol`](./src/CrowdFunding.sol)**: Smart contract that contains functions used by Benefactors to create campaigns, as well as functions used by Angels to make donations.
+- ###  **[`LockTokens.sol`](./src/LockTokens.sol)**: Smart contract that contains functions used by Angels to lock their Angel Dollars in the Angel Pool, and then get Angel Governance Tokens in return.
+
+## Proposal
+
+### To learn more about the AngelDAO project, [read our proposal here](AngelDAO_Proposal.md).
+
+## Set Up
+
+```shell
+$ git clone https://github.com/0xBcamp/Sept23_Crowdfunding
+$ cd Sept23_Crowdfunding.git
+```
+
+## Build
 
 ```shell
 $ forge build
 ```
 
-### Test
+## Frontend
 
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+### For comprehensive information on how to run the frontend interface, [refer to the Frontend Guide]()
+</span>
