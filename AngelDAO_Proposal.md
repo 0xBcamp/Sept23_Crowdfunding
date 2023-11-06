@@ -17,6 +17,8 @@
 
 * ### Mission
 
+* ### Team
+
 ## Introduction
 
 ### Crowdfunding is not a novel concept and a lot of platforms ([Kickstarter](https://www.kickstarter.com/), [Gofundme](https://www.gofundme.com/), etc) exist to make it so much easier for all involved.
@@ -84,3 +86,11 @@
 ## Mission
 
 * ### To establish AngelDAO as a reliable, open, and global DAO, in order to transform web3 crowdfunding. Our goals are to eliminate defects, encourage well-informed investment decisions, and develop a safer and more effective community funding ecosystem that benefits everybody.
+
+## Team
+
+[Chukwubuike Victory Chime](https://github.com/yeahChibyke)
+
+[Lakshay Jamwal](https://github.com/lakshayjamwal108)
+
+[Mohammad Rokib](https://github.com/MohammadRokib)

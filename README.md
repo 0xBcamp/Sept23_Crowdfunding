@@ -43,3 +43,12 @@ $ forge build
   <source src="AngelDAO_Working_Presentation.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+
+## Team
+
+[Chukwubuike Victory Chime](https://github.com/yeahChibyke)
+
+[Lakshay Jamwal](https://github.com/lakshayjamwal108)
+
+[Mohammad Rokib](https://github.com/MohammadRokib)
