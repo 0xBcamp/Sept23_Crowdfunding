@@ -35,4 +35,8 @@ $ forge build
 
 ## Frontend
 
-### For comprehensive information on how to run the frontend interface, [refer to the Frontend Guide]()
+### For comprehensive information on how to run the frontend interface, [refer to this repo](https://github.com/lakshayjamwal108/AngelDaoFrontend)
+
+### Also check out this video that shows our frontend in action 👇🏾
+
+
