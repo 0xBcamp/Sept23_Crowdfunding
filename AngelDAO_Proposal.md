@@ -94,3 +94,5 @@
 [Lakshay Jamwal](https://github.com/lakshayjamwal108)
 
 [Mohammad Rokib](https://github.com/MohammadRokib)
+
+### NO to crowdfunding, YES to communityfunding 😇
