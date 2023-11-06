@@ -1,0 +1,98 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "./CrowdFunding.sol";
+contract ProjectProposal is CrowdFunding {
+
+    IERC20 public governanceDollar;
+    address immutable i_owner;
+    CrowdFunding campaign;
+    struct Proposal {
+        address owner;
+        string title;
+        string description;
+        uint256 target;
+        uint256 deadline;
+        uint256 voteCollected;
+        address[] voters;
+        string image;
+        mapping (address => bool) voted;
+        uint256[] voteValue;
+    }
+    mapping(uint256 => Proposal) public Proposals;
+
+    uint256 public proposalId = 0;
+
+    modifier onlyOwner() {
+        i_owner=msg.sender;
+        _;
+    }
+
+    function updateGovernanaceToken(address _governanceToken) public onlyOwner{
+        governanceDollar = IERC20(_governanceToken);
+    }
+
+    function setCrowdFundingContractAddress(address _crowdFunding) public onlyOwner {
+        campaign = CrowdFunding(_crowdFunding);
+    }
+
+    function createProposal(address _owner, string memory _title, string memory _description, uint256 _target, uint256 _deadline, string memory _image) public returns (uint256) {
+        Proposal storage proposal = Proposals[proposalId];
+
+        require(proposal.deadline < block.timestamp, "The deadline should be a date in the future.");
+
+        proposal.owner = _owner;
+        proposal.title = _title;
+        proposal.description = _description;
+        proposal.target = _target;
+        proposal.deadline = _deadline;
+        proposal.voteCollected = 0;
+        proposal.image = _image;
+        proposalId++;
+        return proposalId - 1;
+    }
+
+    function checkRightToVote(address voter,uint256 projectId) public view returns(bool) {
+        Proposal storage proposal = Proposal[projectId];
+        if(proposal.voted[voter]){
+           return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    function voteToProposal(uint256 _id) public payable {
+        require(governanceDollar.balanceOf(msg.sender)>0,"not enough governance tokens");
+        require(checkRightToVote(msg.sender,_id),"you have already voted");
+        uint256 weight = governanceDollar.balanceOf(msg.sender);
+        Proposal storage proposal = Proposals[_id];
+            proposal.voters.push(msg.sender);
+            proposal.voteValue.push(weight);
+            proposal.voteCollected = proposal.amountCollected + weight;
+            calculatePercentage();
+        }
+    }
+
+    function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target, uint256 _deadline, string memory _image) internal {
+            campaign.createCampaign(_owner,_title,_description,_target,_deadline,_image);
+    }
+
+    function getDonators(uint256 _id) view public returns (address[] memory, uint256[] memory) {
+        return (Proposals[_id].donators, Proposals[_id].donations);
+    }
+
+    function getProposals() public view returns (Proposal[] memory) {
+        Proposal[] memory allProposals = new Proposal[](proposalId);
+
+        for(uint i = 0; i < proposalId; i++) {
+            Proposal storage item = Proposals[i];
+
+            allProposals[i] = item;
+        }
+
+        return allProposals;
+    }
+}

@@ -65,6 +65,17 @@ contract CrowdFunding {
         require(sent, "Transfer failed!");
     }
 
+    function withdrawFromCampaign(uint256 _id, uint256 amount, address to) public payable {
+        Campaign storage campaign = campaigns[_id];
+
+        require(msg.sender == campaign.owner, "only owner of this campaign can withdraw");
+        require(amount <= campaign.amountCollected, "can't withdraw more than total collection");
+
+        campaign.amountCollected = campaign.amountCollected - amount;
+
+        require(angelDollar.transfer(to, amount), "Withdrawal failed");
+    }
+
     function getDonators(uint256 _id) public view returns (address[] memory, uint256[] memory) {
         return (campaigns[_id].donators, campaigns[_id].donations);
     }
@@ -79,5 +90,9 @@ contract CrowdFunding {
         }
 
         return allCampaigns;
+    }
+
+    function getAngelDollarAddress() public view returns (address) {
+        return address(angelDollar);
     }
 }
