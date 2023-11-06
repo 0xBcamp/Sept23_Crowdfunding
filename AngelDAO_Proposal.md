@@ -15,6 +15,8 @@
 
 * ### Vision
 
+* ### Mission
+
 ## Introduction
 
 ### Crowdfunding is not a novel concept and a lot of platforms ([Kickstarter](https://www.kickstarter.com/), [Gofundme](https://www.gofundme.com/), etc) exist to make it so much easier for all involved.
@@ -79,3 +81,6 @@
 
 * ### Empowering trust and transparency in web3 crowdfunding through AngelDAO, a universal DAO that fosters informed investments and eliminates inherent flaws, creating a more secure and efficient community-funding ecosystem.
 
+## Mission
+
+* ### To establish AngelDAO as a reliable, open, and global DAO, in order to transform web3 crowdfunding. Our goals are to eliminate defects, encourage well-informed investment decisions, and develop a safer and more effective community funding ecosystem that benefits everybody.
