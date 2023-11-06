@@ -39,4 +39,7 @@ $ forge build
 
 ### Also check out this video that shows our frontend in action 👇🏾
 
-
+<video width="320" height="240" controls>
+  <source src="AngelDAO_Working_Presentation.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
