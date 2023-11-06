@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >= 0.6.0 < 0.9.0;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
@@ -56,13 +56,13 @@ contract CrowdFunding {
 
         Campaign storage campaign = campaigns[_id];
 
+        campaign.donators.push(msg.sender);
+        campaign.donations.push(amount);
+        campaign.amountCollected = campaign.amountCollected + amount;
+
         bool sent = angelDollar.transferFrom(msg.sender, address(this), amount);
 
-        if (sent) {
-            campaign.donators.push(msg.sender);
-            campaign.donations.push(amount);
-            campaign.amountCollected = campaign.amountCollected + amount;
-        }
+        require(sent, "Transfer failed!");
     }
 
     function getDonators(uint256 _id) public view returns (address[] memory, uint256[] memory) {

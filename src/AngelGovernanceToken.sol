@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >= 0.6.0 < 0.9.0;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
@@ -24,6 +24,7 @@ contract AngelGovernanceToken is ERC20 {
     }
 
     function setLockTokensContract(address _lockTokensContract) public onlyOwner {
+        require(_lockTokensContract != address(0), "Address cannot be zero");
         lockTokensContract = _lockTokensContract;
     }
 

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >= 0.6.0 < 0.9.0;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {AngelGovernanceToken} from "./AngelGovernanceToken.sol";
@@ -14,6 +14,7 @@ contract LockTokens {
 
     event AccountBalance(address indexed _account, uint256 _balance);
     event MintingTokens(address indexed _to, uint256 _amount);
+    event SwapRatioUpdated(uint256 oldRatio, uint256 newRatio);
 
     constructor() {
         i_owner = msg.sender;
@@ -66,7 +67,9 @@ contract LockTokens {
     // Owner can update the swap ratio if needed
     function updateSwapRatio(uint256 newRatio) external onlyOwner {
         require(newRatio > 0, "Swap ratio must be greater than 0");
+        uint256 oldRatio = swapRatio;
         swapRatio = newRatio;
+        emit SwapRatioUpdated(oldRatio, newRatio);
     }
 
     // Function to view the address of angelDollar

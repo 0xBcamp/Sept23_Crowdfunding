@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/ERC20.sol)
 
-pragma solidity >= 0.6.0 < 0.9.0;
+pragma solidity ^0.8.20;
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {IERC20Metadata} from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
@@ -17,8 +17,8 @@ contract AngelDollar is Context, IERC20, IERC20Metadata, IERC20Errors {
 
     uint256 private _totalSupply;
 
-    string private _name = "AngelDollar";
-    string private _symbol = "ADT";
+    string private constant _name = "AngelDollar";
+    string private constant _symbol = "ADT";
     address private immutable i_owner;
 
     event TokensMinted(address indexed _to, uint256 _amount);
